@@ -1,0 +1,6 @@
+
+var priorityArray = [UInt32: UInt32]()
+var priorityToSubstract = priorityArray[0]
+var priorityToSubstractr: Int32?
+priorityToSubstract = priorityArray[0]
+priorityToSubstractr = priorityArray[0]

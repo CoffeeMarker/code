@@ -1,6 +1,6 @@
 
-var priorityArray = [UInt32: UInt32]()
-var priorityToSubstract = priorityArray[0]
-var priorityToSubstractr: Int32?
-priorityToSubstract = priorityArray[0]
-priorityToSubstractr = priorityArray[0]
+//I want to move a SCNNode to the center of the screen, with a z of (camera!.position.z - 18.5)
+
+let projectedOrigin = scnView.projectPoint(SCNVector3Zero) //found this online, not sure if I need it, it gives me unexpected values after movign the camera
+let positionVector = scnView.unprojectPoint(SCNVector3(x: Float(scnView.bounds.width) / 2, y: heightScnView / 2 + 40, z: projectedOrigin.z))
+node.position = SCNVector3(x: 0.0, y: positionVector.y, z: camera!.position.z - 18.5)

@@ -3,4 +3,4 @@
 
 let projectedOrigin = scnView.projectPoint(SCNVector3Zero) //found this online, not sure if I need it, it gives me unexpected values after movign the camera
 let positionVector = scnView.unprojectPoint(SCNVector3(x: Float(scnView.bounds.width) / 2, y: heightScnView / 2 + 40, z: projectedOrigin.z))
-node.position = SCNVector3(x: 0.0, y: positionVector.y, z: camera!.position.z - 18.5)
+node.position = SCNVector3(x: positionVector.x, y: positionVector.y, z: camera!.position.z - 18.5)

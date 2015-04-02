@@ -7,3 +7,5 @@ let camera = scnView.scene?.rootNode.childNodeWithName("camera", recursively: tr
 let zPlanePosition: Float = ( camera!.camera!.zNear + 1 ) / camera!.camera!.zFar
 let positionVector = scnView.unprojectPoint(SCNVector3(x: Float(scnView.bounds.width) / 2, y: Float(scnView.bounds.height) / 2, z: zPlanePosition))
 plane.position = SCNVector3(x: 0.0, y: positionVector.y, z: camera!.position.z - positionVector.z)
+
+//the z is roughly correct, the x is exactly correct, but the y is not the y I expect

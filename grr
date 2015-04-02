@@ -1,6 +1,9 @@
 
-//I want to move a SCNNode to the center of the screen, with a z of (camera!.position.z - 18.5)
+//I want to move a plane to the center of the screen
 
-let projectedOrigin = scnView.projectPoint(SCNVector3Zero) //found this online, not sure if I need it, it gives me unexpected values after movign the camera
-let positionVector = scnView.unprojectPoint(SCNVector3(x: Float(scnView.bounds.width) / 2, y: heightScnView / 2 + 40, z: projectedOrigin.z))
-node.position = SCNVector3(x: positionVector.x, y: positionVector.y, z: camera!.position.z - 18.5)
+let scnView = self.view as SCNView
+let camera = scnView.scene?.rootNode.childNodeWithName("camera", recursively: true)
+
+let zPlanePosition: Float = ( camera!.camera!.zNear + 1 ) / camera!.camera!.zFar
+let positionVector = scnView.unprojectPoint(SCNVector3(x: Float(scnView.bounds.width) / 2, y: Float(scnView.bounds.height) / 2, z: zPlanePosition))
+plane.position = SCNVector3(x: 0.0, y: positionVector.y, z: camera!.position.z - positionVector.z)
